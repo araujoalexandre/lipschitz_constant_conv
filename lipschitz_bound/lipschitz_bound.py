@@ -17,15 +17,15 @@ class LipschitzBound:
 
   def __init__(self, kernel, padding, sample=50, backend='numpy'):
 
-    self.kernels = kernels
+    self.kernel = kernel
     self.padding = padding
     self.sample = sample
     self.backend = backend
 
-    # verify the kernels is square
+    # verify the kernel is square
     if not kernel.shape[-1] == kernel.shape[-2]:
       raise ValueError("The last 2 dim of the kernel must be equal.")
-    # verify if all kernels have odd shape
+    # verify if all kernel have odd shape
     if not kernel.shape[-1] % 2 == 1:
       raise ValueError("The dimension of the kernel must be odd.")
 
