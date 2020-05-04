@@ -26,8 +26,9 @@ def compute_diff(image_size, kshape, padding, kernel_type):
   # compute sv max
   sv_max = svds(A, k=1, which='LM', return_singular_vectors=False)[0]
   # compute bound
-  lb = LipschitzBound(kernel, padding, sample=200) 
-  sv_bound = lb.compute()
+  lb = LipschitzBound(kernel.shape, padding, sample=200, backend=kernel_type,
+                      cuda=False)
+  sv_bound = lb.compute(kernel)
   return sv_max - sv_bound
 
 
