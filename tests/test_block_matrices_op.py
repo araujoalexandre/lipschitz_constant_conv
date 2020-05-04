@@ -108,7 +108,7 @@ class CompareDoublyBlockToeplitzFromKernel:
 
 
 def test_conv_with_matrix_op_with_padding():
-  for kernel_size in [3, 5, 7]:
+  for kernel_size in [1, 3, 5, 7]:
     for image_size in [28, 32, 35]:
       for pad in [0, 1, 2, 3, 4]:
         for channels_in in [1, 2, 3, 4]:
